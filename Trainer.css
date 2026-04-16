@@ -1,0 +1,73 @@
+:root {
+--font-body: "Roboto", sans-serif;
+--font-heading: "Raleway", sans-serif;
+--font-nav: "Poppins", sans-serif;
+
+--color-bg: #101a20;
+--color-text: #e7f2f7;
+--color-heading: #ffffff;
+--color-accent: #1387c1;
+--color-surface: #141f26;
+}
+
+body {
+font-family: var(--font-body);
+background: var(--color-bg);
+color: var(--color-text);
+margin: 0;
+}
+
+header {
+text-align: center;
+padding: 2rem;
+}
+
+.trainers-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+gap: 20px;
+padding: 20px;
+}
+
+.trainer-card {
+background: var(--color-surface);
+border-radius: 12px;
+padding: 15px;
+text-align: center;
+transition: 0.3s ease;
+}
+
+.trainer-card:hover {
+transform: translateY(-8px);
+}
+
+.trainer-card img {
+width: 100%;
+border-radius: 10px;
+}
+
+.badges span {
+background: var(--color-accent);
+padding: 5px 10px;
+border-radius: 20px;
+font-size: 0.8rem;
+}
+
+.stars {
+margin: 10px 0;
+color: gold;
+}
+
+.filters {
+text-align: center;
+margin: 20px;
+}
+
+.filters button {
+margin: 5px;
+padding: 10px 15px;
+border: none;
+background: var(--color-accent);
+color: white;
+cursor: pointer;
+}
