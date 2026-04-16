@@ -1,0 +1,12 @@
+:root {
+  --font-body: "Roboto", sans-serif;
+  --font-heading: "Raleway", sans-serif;
+  --font-nav: "Poppins", sans-serif;
+
+  --color-bg: #101a20;
+  --color-text: #e7f2f7;
+  --color-heading: #ffffff;
+  --color-accent: #1387c1;
+  --color-surface: #141f26;
+  --color-contrast: #ffffff;
+}
