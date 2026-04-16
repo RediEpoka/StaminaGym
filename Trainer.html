@@ -1,31 +1,73 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trainer</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>StaminaGym - Trainers</title>
+
+  <!-- Fonts -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Raleway:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="Trainer.css">
 </head>
+
 <body>
-    <header>
-        <h1>Trainer</h1>
-    </header>
-    <main>
-        <section>
-            <h2>About the Trainer</h2>
-            <p>This section provides information about the trainer, including their background, expertise, and experience in the field.</p>
-        </section>
-        <section>
-            <h2>Training Programs</h2>
-            <p>Here you can find details about the various training programs offered by the trainer, including schedules, topics covered, and enrollment information.</p>
-        </section>
-        <section>
-            <h2>Contact Information</h2>
-            <p>If you have any questions or would like to get in touch with the trainer, please use the contact information provided here.</p>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2024 Trainer. All rights reserved.</p>
-    </footer>
+
+<header>
+  <h1>Meet Our Trainers</h1>
+</header>
+
+<!-- FILTER -->
+
+<div class="filters">
+  <button data-filter="all">All</button>
+  <button data-filter="strength">Strength</button>
+  <button data-filter="yoga">Yoga</button>
+  <button data-filter="cardio">Cardio</button>
+</div>
+
+<!-- TRAINERS GRID -->
+
+<section class="trainers-grid">
+
+  <div class="trainer-card" data-category="strength">
+    <img src="images/trainer1.jpg" alt="Trainer">
+    <h3>John Doe</h3>
+
+<div class="badges">
+  <span>Strength</span>
+</div>
+
+<div class="stars" data-rating="4"></div>
+
+<p>5 Years Experience</p>
+
+<button class="view-btn">View Profile</button>
+
+  </div>
+
+  <div class="trainer-card" data-category="yoga">
+    <img src="images/trainer2.jpg" alt="Trainer">
+    <h3>Jane Smith</h3>
+
+<div class="badges">
+  <span>Yoga</span>
+</div>
+
+<div class="stars" data-rating="5"></div>
+
+<p>8 Years Experience</p>
+
+<button class="view-btn">View Profile</button>
+
+  </div>
+
+</section>
+
+<script src="Trainer.js"></script>
+
 </body>
 </html>
