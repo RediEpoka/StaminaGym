@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>StaminaGym — Membership & Pricing</title>
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700;800;900&family=Roboto:wght@300;400;500;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <!-- Page Styles -->
   <link rel="stylesheet" href="membership.css">
 </head>
 <body>
 
-<!-- ═══════════════ HERO ═══════════════ -->
+
 <section class="hero">
   <div class="container">
     <div class="hero-label">Membership &amp; Pricing</div>
@@ -20,11 +20,11 @@
   </div>
 </section>
 
-<!-- ═══════════════ PRICING SECTION ═══════════════ -->
+
 <section id="pricing">
   <div class="container">
 
-    <!-- Monthly/Yearly Toggle -->
+    <!-- Monthly/Yearly -->
     <div class="billing-toggle">
       <span class="toggle-label active" id="lbl-monthly">Monthly</span>
       <label class="toggle-wrap" aria-label="Toggle billing period">
@@ -83,14 +83,14 @@
         </ul>
       </div>
 
-      <!-- PREMIUM (Most Popular) -->
+      <!-- PREMIUM -->
       <div class="plan-card popular" data-plan="premium">
         <div class="most-popular">Most Popular</div>
         <div class="plan-name">Premium</div>
         <div class="plan-tagline">Peak performance, unlocked.</div>
         <div class="plan-price-wrap">
           <span class="currency">$</span>
-          <span class="plan-price" data-monthly="89" data-yearly="52">89</span>
+          <span class="plan-price" data-monthly="79" data-yearly="52">69</span>
           <span class="per-period">/mo</span>
         </div>
         <div class="yearly-note" id="note-premium"></div>
@@ -112,7 +112,7 @@
         <div class="plan-tagline">No limits. Ever.</div>
         <div class="plan-price-wrap">
           <span class="currency">$</span>
-          <span class="plan-price" data-monthly="119" data-yearly="99">119</span>
+          <span class="plan-price" data-monthly="119" data-yearly="89">119</span>
           <span class="per-period">/mo</span>
         </div>
         <div class="yearly-note" id="note-vip"></div>
@@ -128,7 +128,7 @@
         </ul>
       </div>
 
-    </div><!-- /pricing-grid -->
+    </div>
 
     <!-- Compare Plans Button -->
     <div class="compare-btn-wrap">
@@ -163,7 +163,7 @@
   </div>
 </section><!-- /pricing section -->
 
-<!-- ═══════════════ PROMO CODE ═══════════════ -->
+<!-- PROMO CODE  -->
 <div class="promo-section">
   <div class="container">
     <div class="promo-inner">
@@ -182,7 +182,6 @@
   </div>
 </div>
 
-<!-- ═══════════════ COMPARISON TABLE ═══════════════ -->
 <section class="compare-section" id="compare">
   <div class="container">
     <div class="section-title">Feature <em>Breakdown</em></div>
@@ -231,7 +230,7 @@
   </div>
 </section>
 
-<!-- ═══════════════ FAQ ═══════════════ -->
+
 <section id="faq">
   <div class="container">
     <div class="section-title">Got <em>Questions?</em></div>
@@ -241,7 +240,7 @@
   </div>
 </section>
 
-<!-- ═══════════════ SIGNUP CTA ═══════════════ -->
+>
 <section id="signup">
   <div class="container">
     <div class="section-title">Ready to <em>Start?</em></div>
@@ -253,14 +252,13 @@
   </div>
 </section>
 
-<!-- ═══════════════ COMPARE MODAL ═══════════════ -->
 <div class="modal-overlay" id="modal-overlay" onclick="closeModalOutside(event)">
   <div class="modal" role="dialog" aria-modal="true" aria-label="Plan comparison">
     <div class="modal-header">
       <div class="section-title" style="font-size:32px; margin-bottom:0;">Side-by-Side <em>Compare</em></div>
       <button class="modal-close" onclick="closeModal()" aria-label="Close modal">✕</button>
     </div>
-    <!-- Rows cloned from #compare table by membership.js -->
+  
     <div style="overflow-x:auto;">
       <table class="compare-table">
         <thead>
@@ -278,7 +276,6 @@
   </div>
 </div>
 
-<!-- Page Script — loaded at end of body so DOM is ready -->
 <script src="membership.js"></script>
 
 </body>
