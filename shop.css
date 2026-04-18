@@ -1,0 +1,292 @@
+:root {
+  --font-body: "Roboto", sans-serif;
+  --font-heading: "Raleway", sans-serif;
+  --font-nav: "Poppins", sans-serif;
+
+  --color-bg: #101a20;
+  --color-text: #e7f2f7;
+  --color-heading: #ffffff;
+  --color-accent: #1387c1;
+  --color-surface: #141f26;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--color-bg);
+  color: var(--color-text);
+  margin: 0;
+}
+
+header {
+  text-align: center;
+  padding: 2rem;
+}
+
+header h1 {
+  font-family: var(--font-heading);
+  color: var(--color-heading);
+  margin-bottom: 10px;
+}
+
+header p {
+  color: #c9d9df;
+}
+
+.shop-controls {
+  padding: 20px;
+  text-align: center;
+}
+
+.search-box {
+  margin-bottom: 20px;
+}
+
+.search-box input {
+  padding: 10px;
+  width: 260px;
+  max-width: 90%;
+  border: none;
+  border-radius: 6px;
+  outline: none;
+}
+
+.filters {
+  margin-bottom: 20px;
+}
+
+.filters button {
+  margin: 5px;
+  padding: 10px 15px;
+  border: none;
+  background: var(--color-accent);
+  color: white;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: 0.3s ease;
+}
+
+.filters button:hover {
+  opacity: 0.85;
+}
+
+.sort-box {
+  margin-top: 10px;
+}
+
+.sort-box label {
+  margin-right: 10px;
+}
+
+.sort-box select {
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  outline: none;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 20px;
+}
+
+.product-card {
+  background: var(--color-surface);
+  border-radius: 12px;
+  padding: 15px;
+  text-align: center;
+  transition: 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+}
+
+.product-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.product-card h3 {
+  margin: 15px 0 10px;
+  font-family: var(--font-heading);
+  color: var(--color-heading);
+}
+
+.product-card p {
+  margin: 8px 0;
+}
+
+.product-card .price {
+  color: var(--color-accent);
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.product-card .rating {
+  color: gold;
+}
+
+.product-actions {
+  margin-top: 15px;
+}
+
+.product-actions button {
+  margin: 5px;
+  padding: 10px 12px;
+  border: none;
+  background: var(--color-accent);
+  color: white;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: 0.3s ease;
+}
+
+.product-actions button:hover {
+  opacity: 0.85;
+}
+
+.cart-section,
+.wishlist-section {
+  background: var(--color-surface);
+  margin: 20px;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.cart-section h2,
+.wishlist-section h2 {
+  font-family: var(--font-heading);
+  margin-bottom: 15px;
+}
+
+.cart-item,
+.wishlist-item {
+  background: #1b2a33;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.cart-total {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+#discountCode {
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+#applyDiscountBtn {
+  padding: 10px 15px;
+  border: none;
+  background: var(--color-accent);
+  color: white;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+
+#discountMessage {
+  margin-top: 10px;
+  font-weight: bold;
+}
+#checkoutBtn {
+  margin-top: 10px;
+  padding: 10px 15px;
+  background: var(--color-accent);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+#checkoutMessage {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+  background: var(--color-surface);
+  margin: 5% auto;
+  padding: 20px;
+  width: 80%;
+  max-width: 600px;
+  max-height: 85vh;
+  overflow-y: auto;
+  border-radius: 12px;
+  position: relative;
+  color: var(--color-text);
+}
+
+.close-btn {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  font-size: 1.8rem;
+  cursor: pointer;
+  z-index: 2;
+}
+
+#modalDetails img {
+  width: 100%;
+  max-height: 300px;
+  object-fit: contain;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+#modalDetails h2 {
+  margin-bottom: 10px;
+}
+
+#modalDetails p {
+  margin: 8px 0;
+}
+
+.close-btn {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+@media (max-width: 900px) {
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .search-box input {
+    width: 90%;
+  }
+
+  .modal-content {
+    width: 90%;
+  }
+}
