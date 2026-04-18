@@ -1,0 +1,241 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workout-page</title>
+     <link rel="stylesheet" href="base.css"/>
+      <link rel="stylesheet" href="workout.css"/>
+     
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Raleway:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">   
+  
+    
+</head>
+<body>
+
+<h1 class="page-heading">Welcome to the Workout&Tools Hub</h1>
+
+<div class="page-container">
+
+<div class="left-column"> 
+ <section id="bmi-calucator" class="calculator-card">
+<h2> BMI calculator</h2>
+<form id="form-bmi">
+    <div class="inputs-bmi">
+<label for="weight">Weight</label>
+<input type="number" id="weight" placeholder="70"  step="0" min="0"   required>
+</div>
+<div class="inputs-bmi">
+  <label for="height"> Height</label>
+<input type="number" id="height" placeholder="160"  step="0" min="0"   required>  
+</div>
+<button type="submit">Calculate</button>
+<div id="result" class="result-box">
+</div>
+</form>
+
+
+
+
+
+</section>
+<section id="calorie-calculator" class="calculator-card">
+    <h2>Calorie Calculator</h2>
+          <form id="form-clorie">
+        <div class="inputs-calc">
+        <label for="age">Age</label>
+        <input type="number" id="age" placeholder="18" step="0" min="0" required>
+    </div>
+    <div class="inputs-calc">
+<label for="cal-weight">Weight</label>
+<input type="number" id="cal-weight" placeholder="70" step="0" min="0"  required>
+</div>
+<div class="inputs-calc">
+  <label for="cal-height"> Height</label>
+<input type="number" id="cal-height" placeholder="160"  step="0" min="0"  required>  
+</div>
+<div class="inputs-calc">
+  <label for="activity-level">Activity Level</label>
+<input type="text" id="activity-level" placeholder="Daily/Weekly/Monthly" required>  
+</div>
+<div class="inputs-calc">
+  <label for="goal">Goal</label>
+<input type="text" id="goal" placeholder="Lose/Maintain/Gain" required>  
+</div>
+<button type="submit">Calculate</button>
+<div id="result-calc" class="result-box-calc">
+</div>
+</form>
+</section>
+
+
+
+
+
+
+
+
+
+
+<section id="1rm-calculator" class="calculator-card">
+    <h2>1RM Calculator</h2>
+    <form id="form-1rm">
+      <div class="inputs-irm">
+    <label for="rm-weight">Weight</label>
+<input type="number" id="rm-weight" placeholder="70" step="0" min="0"  required>
+</div>  
+    <div class="inputs-irm">
+    <label for="reps">Reps</label>
+<input type="number" id="reps" placeholder="15" step="0" min="0"  required>
+</div>
+<button type="submit">Calculate</button>
+<div id="result-1rm" class="result-box-irm">
+</div>
+</form>
+</section>
+</div>
+
+
+
+
+
+
+
+<div class="middle-column"> 
+<section id="workout-builder" class="calculator-card">
+    <h2>Create Your Workout</h2>
+    <div>
+        <label for="muscle-select">Choose target muscle:</label>
+        <select id="muscle-select">
+            <option value="">-- Select a muscle group --</option>
+            <option value="chest">Chest</option>
+            <option value="back">Back</option>
+            <option value="legs">Legs</option>
+            <option value="shoulders">Shoulders</option>
+            <option value="arms">Arms</option>
+            <option value="core">Core</option>
+        </select>
+    </div>
+    <button id="generate-plan-btn">Create Workout Plan</button>
+  
+    <div id="generated-plan-container">
+        <h3>Your Plan</h3>
+        <div id="plan-display">
+           <p>Select a muscle group and click "Generate" to see a suggested workout.</p>
+        </div>
+        <div id="plan-actions" style="display: none;">
+            <input type="text" id="plan-name-input" placeholder="Plan name (optional)">
+            <button id="save-generated-plan-btn">Save This Plan</button>
+        </div>
+    </div>
+
+    <div id="saved-plans-section">
+        <h3>Your Saved Plans</h3>
+        <div id="saved-plans-list">
+            <p>No saved plans yet.</p>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+<section id="exercise-library-section" class="calculator-card">
+    <h2>Exercises:</h2>
+    <p>Browse over 800 exercises with instructions and muscle targets.</p>
+    
+    <div class="library-filters">
+        <select id="muscle-filter">
+            <option value="">All Muscles</option>
+            <option value="chest">Chest</option>
+            <option value="back">Back</option>
+            <option value="legs">Legs</option>
+             <option value="arms">Arms</option>
+            <option value="core">Core</option>
+        </select>
+        <input type="text" id="exercise-search" placeholder="Search by name...">
+    </div>
+
+    <div id="library-container" class="library-grid">
+        <p>Loading exercises...</p>
+    </div>
+</section>
+
+
+
+<section id="workout-timer" class="calculator-card">
+    <h2>Workout Timer</h2>
+
+    <div id="timer-display">00:00</div>
+    
+    <div class="timer-controls">
+        <div>
+            <label for="timer-minutes">Minutes:</label>
+            <input type="number" id="timer-minutes" value="1" min="0" max="60">
+        </div>
+        <div>
+            <label for="timer-seconds">Seconds:</label>
+            <input type="number" id="timer-seconds" value="0" min="0" max="59">
+        </div>
+    </div>
+     
+    <div class="timer-buttons">
+        <button id="timer-start">Start</button>
+        <button id="timer-pause">Pause</button>
+        <button id="timer-reset">Reset</button>
+    </div>
+     
+    <div class="timer-presets">
+        <p>Quick Rest Times:</p>
+        <button class="preset" data-minutes="0" data-seconds="30">30s</button>
+        <button class="preset" data-minutes="1" data-seconds="0">1:00</button>
+        <button class="preset" data-minutes="1" data-seconds="30">1:30</button>
+        <button class="preset" data-minutes="2" data-seconds="0">2:00</button>
+    </div>
+   
+    <div class="tabata-mode">
+        <label>
+            <input type="checkbox" id="tabata-mode"> Tabata Mode (20s work / 10s rest)
+        </label>
+        <div id="tabata-round-display">Round: 0/8</div>
+    </div>
+</section>
+</div>
+
+
+
+     <div class="right-column"> 
+    <section id="progress-tracker" class="calculator-card">
+    <h2>Progress Tracker</h2>
+    <p>Track your weight or measurements over time.</p>
+    
+    <div>
+        <label for="progress-type">Track:</label>
+        <select id="progress-type">
+            <option value="weight">Weight (kg)</option>
+            <option value="chest">Chest (cm)</option>
+            <option value="waist">Waist (cm)</option>
+            <option value="arms">Arms (cm)</option>
+        </select>
+    </div>
+
+    
+    <div>
+        <label for="progress-value">New Entry:</label>
+        <input type="number" id="progress-value" placeholder=" 70" step="0">
+        <button id="add-progress-btn">Add</button>
+    </div>
+    
+    <canvas id="progress-chart" width="400" height="200"></canvas>
+</section>
+     </div>
+
+</div>
+ <script src="workout.js"></script>
+</body>
+</html>

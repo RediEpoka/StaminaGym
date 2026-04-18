@@ -1,0 +1,319 @@
+ 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: var(--color-text);
+}
+
+body {
+    background-color: var(--color-bg);
+    font-family: var(--font-body);
+    padding: 20px;
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    color: var(--color-contrast);
+}
+
+ 
+.page-heading {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: var(--color-contrast);
+}
+ 
+.page-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr 1fr;
+    gap: 25px;
+}
+
+.left-column {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.middle-column {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.right-column {
+    display: flex;
+    flex-direction: column;
+}
+
+ 
+.calculator-card {
+    background-color: var(--color-surface);
+    border-radius: 12px;
+    padding: 25px;
+    border-top: 4px solid var(--color-accent);
+}
+
+.calculator-card h2 {
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+.calculator-card h3 {
+    margin: 20px 0 15px 0;
+    font-size: 1.2rem;
+}
+
+ 
+.inputs-bmi,
+.inputs-calc,
+.inputs-irm {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: var(--color-text);
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    background-color: var(--color-bg);
+    border: 1px solid #333;
+    border-radius: 6px;
+    color: var(--color-text);
+    font-family: var(--font-body);
+    font-size: 1rem;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: var(--color-accent);
+}
+
+input::placeholder {
+    color: #666;
+}
+
+ 
+button {
+    background-color: var(--color-accent);
+    color: var(--color-contrast);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #0e6a9e;
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+
+.timer-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.timer-buttons button {
+    flex: 1;
+    margin-top: 0;
+}
+
+#timer-pause,
+#timer-reset {
+    background-color: transparent;
+    border: 1px solid var(--color-accent);
+    color: var(--color-text);
+}
+
+#timer-pause:hover,
+#timer-reset:hover {
+    background-color: rgba(19, 135, 193, 0.1);
+}
+
+/* Preset buttons */
+.timer-presets {
+    margin-top: 20px;
+}
+
+.timer-presets p {
+    margin-bottom: 10px;
+}
+
+.preset {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+    margin-right: 8px;
+    margin-top: 5px;
+    background-color: transparent;
+    border: 1px solid var(--color-accent);
+}
+
+.preset:hover {
+    background-color: rgba(19, 135, 193, 0.1);
+}
+ 
+#timer-display {
+    font-size: 4rem;
+    font-family: var(--font-heading);
+    color: var(--color-contrast);
+    text-align: center;
+    margin: 20px 0;
+}
+
+.timer-controls {
+    display: flex;
+    gap: 15px;
+}
+
+.timer-controls div {
+    flex: 1;
+}
+ 
+.library-filters {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.library-filters select {
+    width: auto;
+    flex: 1;
+}
+
+.library-filters input {
+    flex: 2;
+}
+
+.library-grid {
+    max-height: 300px;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+ 
+#generated-plan-container {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #333;
+}
+
+#plan-display {
+    background-color: var(--color-bg);
+    padding: 15px;
+    border-radius: 8px;
+    margin: 10px 0;
+}
+
+#saved-plans-section {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #333;
+}
+
+#saved-plans-list {
+    background-color: var(--color-bg);
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+/* ===== RESULT BOXES ===== */
+.result-box,
+.result-box-calc,
+.result-box-irm {
+    margin-top: 15px;
+    padding: 15px;
+    background-color: var(--color-bg);
+    border-radius: 8px;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+ 
+#progress-tracker canvas {
+    margin-top: 20px;
+    width: 100% !important;
+    height: auto !important;
+    background-color: var(--color-bg);
+    border-radius: 8px;
+    padding: 10px;
+}
+
+#progress-tracker select,
+#progress-tracker input {
+    margin-bottom: 10px;
+}
+
+#add-progress-btn {
+    width: 100%;
+}
+
+ 
+.tabata-mode {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #333;
+}
+
+.tabata-mode label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.tabata-mode input[type="checkbox"] {
+    width: auto;
+}
+
+#tabata-round-display {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--color-accent);
+}
+
+ 
+.library-grid::-webkit-scrollbar {
+    width: 8px;
+}
+
+.library-grid::-webkit-scrollbar-track {
+    background: var(--color-bg);
+    border-radius: 4px;
+}
+
+.library-grid::-webkit-scrollbar-thumb {
+    background: var(--color-accent);
+    border-radius: 4px;
+}
+ 
+@media (max-width: 1000px) {
+    .page-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .page-heading {
+        font-size: 2rem;
+    }
+}
+ 
