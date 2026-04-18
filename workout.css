@@ -149,8 +149,7 @@ button:active {
 #timer-reset:hover {
     background-color: rgba(19, 135, 193, 0.1);
 }
-
-/* Preset buttons */
+ 
 .timer-presets {
     margin-top: 20px;
 }
@@ -236,8 +235,7 @@ button:active {
     border-radius: 8px;
     margin-top: 10px;
 }
-
-/* ===== RESULT BOXES ===== */
+ 
 .result-box,
 .result-box-calc,
 .result-box-irm {
@@ -254,6 +252,7 @@ button:active {
     margin-top: 20px;
     width: 100% !important;
     height: auto !important;
+    max-height: 200px;
     background-color: var(--color-bg);
     border-radius: 8px;
     padding: 10px;
