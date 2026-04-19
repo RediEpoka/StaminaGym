@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StaminaGym - Classes & Schedule</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"> 
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Raleway:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="base.css" />
+  <link rel="stylesheet" href="scheduleClasses.css" />
+</head>
+<body>
+  <main class="classes-page">
+    <section class="classes-hero">
+      <div class="container">
+        <p class="eyebrow">Train with purpose</p>
+        <h1>Classes & Schedule</h1>
+        <p class="hero-text">
+          Explore all of our classes, filter by category, trainer, difficulty, or day,
+          and book your next session in seconds.
+        </p>
+      </div>
+    </section>
+
+    <section class="classes-section">
+      <div class="container">
+        <div class="section-top">
+          <div>
+            <h2>Browse Classes</h2>
+            <p>Choose the class that matches your fitness goals.</p>
+          </div>
+
+          <div class="search-wrap">
+            <label for="searchInput" class="sr-only">Search classes</label>
+            <input
+              type="text"
+              id="searchInput"
+              class="search-input"
+              placeholder="Search classes by name..."
+            />
+          </div>
+        </div>
+
+        <div class="filter-panel">
+          <div class="tabs">
+            <button class="tab-btn active" data-category="all">All</button>
+            <button class="tab-btn" data-category="strength">Strength</button>
+            <button class="tab-btn" data-category="cardio">Cardio</button>
+            <button class="tab-btn" data-category="yoga">Yoga</button>
+            <button class="tab-btn" data-category="hiit">HIIT</button>
+            <button class="tab-btn" data-category="boxing">Boxing</button>
+            <button class="tab-btn" data-category="crossfit">CrossFit</button>
+            <button class="tab-btn" data-category="nutrition">Nutrition</button>
+          </div>
+
+          <div class="filters-grid">
+            <div class="filter-group">
+              <label for="dayFilter">Day</label>
+              <select id="dayFilter">
+                <option value="all">All Days</option>
+                <option value="Monday">Monday</option>
+                <option value="Tuesday">Tuesday</option>
+                <option value="Wednesday">Wednesday</option>
+                <option value="Thursday">Thursday</option>
+                <option value="Friday">Friday</option>
+                <option value="Saturday">Saturday</option>
+              </select>
+            </div>
+
+            <div class="filter-group">
+              <label for="difficultyFilter">Difficulty</label>
+              <select id="difficultyFilter">
+                <option value="all">All Levels</option>
+                <option value="beginner">Beginner</option>
+                <option value="intermediate">Intermediate</option>
+                <option value="advanced">Advanced</option>
+              </select>
+            </div>
+
+            <div class="filter-group">
+              <label for="trainerFilter">Trainer</label>
+              <select id="trainerFilter">
+                <option value="all">All Trainers</option>
+              </select>
+            </div>
+
+            <div class="filter-group">
+              <label for="sortFilter">Sort By</label>
+              <select id="sortFilter">
+                <option value="default">Default</option>
+                <option value="time">Time</option>
+                <option value="difficulty">Difficulty</option>
+                <option value="popularity">Popularity</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="results-bar">
+          <p id="resultsCount">0 classes found</p>
+        </div>
+
+        <div class="class-grid" id="classGrid"></div>
+      </div>
+    </section>
+
+    <section class="schedule-section">
+      <div class="container">
+        <div class="section-top">
+          <div>
+            <h2>Weekly Schedule</h2>
+            <p>See all available classes for the week.</p>
+          </div>
+        </div>
+
+        <div class="schedule-table-wrap">
+          <table class="schedule-table">
+            <thead>
+              <tr>
+                <th>Day</th>
+                <th>Time</th>
+                <th>Class</th>
+                <th>Category</th>
+                <th>Trainer</th>
+                <th>Difficulty</th>
+              </tr>
+            </thead>
+            <tbody id="scheduleTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal hidden" id="classModal" aria-hidden="true">
+    <div class="modal-overlay" id="modalOverlay"></div>
+    <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" id="closeModalBtn" aria-label="Close modal">&times;</button>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <script src="scheduleClasses.js"></script>
+</body>
+</html>
