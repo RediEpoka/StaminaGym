@@ -44,49 +44,42 @@ placeOrderBtn.addEventListener("click", function() {
   const phone = phoneNumber.value.trim();
   const address = addressInput.value.trim();
 
-  // Name validation
   if (name === "" || name.length > 20 || !/^[a-zA-Z\s]+$/.test(name)) {
     checkoutMessage.textContent = "Name must be under 20 characters and contain only letters.";
     checkoutMessage.style.color = "red";
     return;
   }
 
-  // Email validation
   if (!email.includes("@") || !email.includes(".")) {
     checkoutMessage.textContent = "Please enter a valid email address.";
     checkoutMessage.style.color = "red";
     return;
   }
 
-  // Phone validation
   if (!/^\+?[0-9]+$/.test(phone)) {
     checkoutMessage.textContent = "Phone number must contain only numbers.";
     checkoutMessage.style.color = "red";
     return;
   }
 
-  // Address validation
   if (address === "") {
     checkoutMessage.textContent = "Address cannot be empty.";
     checkoutMessage.style.color = "red";
     return;
   }
 
-  // Payment method
   if (paymentMethod.value === "") {
     checkoutMessage.textContent = "Please select a payment method.";
     checkoutMessage.style.color = "red";
     return;
   }
 
-  // Cart empty check
   if (cart.length === 0) {
     checkoutMessage.textContent = "Your cart is empty.";
     checkoutMessage.style.color = "red";
     return;
   }
 
-  // Success
   checkoutMessage.textContent = "Order placed successfully!";
   checkoutMessage.style.color = "lightgreen";
 
