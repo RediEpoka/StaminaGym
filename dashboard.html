@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Member Dashboard – StaminaGym</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Raleway:wght@600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="dashboard.css" />
+</head>
+<body>
+
+<div id="auth-screen">
+  <div class="auth-container">
+
+    <div class="auth-logo">
+      <div class="logo-icon">S</div>
+      <span class="auth-logo-text"><strong>STAMINA</strong>GYM</span>
+    </div>
+
+    <div class="auth-tabs">
+      <button class="auth-tab active" id="tab-login" onclick="switchTab('login')">Sign In</button>
+      <button class="auth-tab" id="tab-signup" onclick="switchTab('signup')">Create Account</button>
+    </div>
+
+    <form class="auth-form" id="form-login" onsubmit="handleLogin(event)" autocomplete="off">
+      <div class="form-group">
+        <label for="login-email">Email</label>
+        <input type="email" id="login-email" placeholder="you@example.com" required />
+      </div>
+      <div class="form-group">
+        <label for="login-password">Password</label>
+        <input type="password" id="login-password" placeholder="Your password" required />
+      </div>
+      <p class="auth-error" id="login-error" style="display:none;"></p>
+      <button type="submit" class="btn-primary">Sign In</button>
+    </form>
+
+    <form class="auth-form" id="form-signup" onsubmit="handleSignup(event)" autocomplete="off" style="display:none;">
+      <div class="form-group">
+        <label for="signup-name">Full Name</label>
+        <input type="text" id="signup-name" placeholder="e.g. Gerald Mekshi" required />
+      </div>
+      <div class="form-group">
+        <label for="signup-email">Email</label>
+        <input type="email" id="signup-email" placeholder="you@example.com" required />
+      </div>
+      <div class="form-group">
+        <label for="signup-password">Password</label>
+        <input type="password" id="signup-password" placeholder="At least 6 characters" required />
+      </div>
+      <div class="form-group">
+  <label for="signup-phone">Phone Number</label>
+  <input type="tel" id="signup-phone" placeholder="e.g. +355 69 123 4567" required />
+</div>
+
+<div class="form-group">
+  <label for="signup-location">City / Location</label>
+  <input type="text" id="signup-location" placeholder="e.g. Tirana, Albania" required />
+</div>
+      <div class="form-group">
+        <label for="signup-plan">Membership Plan</label>
+        <select id="signup-plan" required>
+          <option value="">Select a plan</option>
+          <option value="Basic">Basic</option>
+          <option value="Premium">Premium</option>
+          <option value="Elite">Elite</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="signup-goal">Main Fitness Goal</label>
+        <select id="signup-goal" required>
+          <option value="">Select a goal</option>
+          <option value="Build muscle mass">Build muscle mass</option>
+          <option value="Lose weight">Lose weight</option>
+          <option value="Improve cardio">Improve cardio</option>
+          <option value="Stay active">Stay active</option>
+        </select>
+      </div>
+      <p class="auth-error" id="signup-error" style="display:none;"></p>
+      <button type="submit" class="btn-primary">Create Account</button>
+    </form>
+
+  </div>
+</div>
+
+
+<div id="dashboard-screen" style="display:none;">
+
+  <header class="dash-header">
+    <div class="dash-header-left">
+      <div class="logo-icon">S</div>
+      <span class="auth-logo-text"><strong>STAMINA</strong>GYM</span>
+    </div>
+    <div class="dash-header-right">
+      <span class="dash-welcome">Welcome, <span id="dashboard-username">Member</span></span>
+      <button class="btn-logout" onclick="handleLogout()">Log Out</button>
+    </div>
+  </header>
+
+  <div class="dash-body">
+
+    <aside class="dash-sidebar">
+      <nav class="dash-nav">
+        <button class="dash-nav-item active" onclick="showSection('profile', this)">👤 Profile</button>
+        <button class="dash-nav-item" onclick="showSection('bookings', this)">📅 My Bookings</button>
+        <button class="dash-nav-item" onclick="showSection('workout', this)">💪 Workout Plan</button>
+        <button class="dash-nav-item" onclick="showSection('progress', this)">📊 Progress</button>
+        <button class="dash-nav-item" onclick="showSection('membership', this)">🏅 Membership</button>
+      </nav>
+    </aside>
+
+
+    <main class="dash-main">
+
+      <div id="section-profile">
+        <h2 class="section-heading">My Profile</h2>
+
+        <div class="profile-card">
+          <div class="profile-avatar">
+            <span id="profile-initials">?</span>
+          </div>
+          <div class="profile-info">
+            <h3 id="profile-name">-</h3>
+            <p id="profile-email" class="profile-email">-</p>
+            <span class="profile-badge" id="profile-badge">Member</span>
+          </div>
+        </div>
+
+        <div class="profile-details">
+          <div class="detail-card">
+            <h4>Fitness Goal</h4>
+            <ul class="goals-list">
+              <li><span id="profile-goal">-</span></li>
+              <li>Stay consistent with training</li>
+              <li>Maintain a healthy diet</li>
+            </ul>
+          </div>
+          <div class="detail-card">
+            <h4>Member Info</h4>
+            <div class="info-row"><span>Member since</span><strong id="profile-since">-</strong></div>
+            <div class="info-row"><span>Plan</span><strong id="profile-plan">-</strong></div>
+            <div class="info-row"><span>Classes attended</span><strong>42</strong></div>
+          </div>
+          <div class="detail-card">
+            <h4>Contact</h4>
+            <div class="info-row"><span>Email</span><strong id="profile-email-2">-</strong></div>
+           <div class="info-row"><span>Phone</span><strong id="profile-phone">-</strong></div>
+           <div class="info-row"><span>Location</span><strong id="profile-location">-</strong></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="section-bookings" style="display:none;">
+        <h2 class="section-heading">My Bookings</h2>
+        <div class="bookings-list" id="bookings-list"></div>
+      </div>
+
+
+      <div id="section-workout" style="display:none;">
+        <h2 class="section-heading">Workout Plan</h2>
+        <div class="workout-grid">
+          <div class="workout-card"><div class="workout-day">Monday</div><div class="workout-focus">Chest &amp; Triceps</div><p>Bench press, push-ups, tricep dips, cable flyes</p></div>
+          <div class="workout-card"><div class="workout-day">Tuesday</div><div class="workout-focus">Back &amp; Biceps</div><p>Pull-ups, barbell rows, bicep curls, lat pulldown</p></div>
+          <div class="workout-card rest"><div class="workout-day">Wednesday</div><div class="workout-focus">Rest Day</div><p>Active recovery, stretching, light walk</p></div>
+          <div class="workout-card"><div class="workout-day">Thursday</div><div class="workout-focus">Legs</div><p>Squats, lunges, leg press, calf raises</p></div>
+          <div class="workout-card"><div class="workout-day">Friday</div><div class="workout-focus">Shoulders &amp; Core</div><p>Overhead press, lateral raises, planks, crunches</p></div>
+          <div class="workout-card rest"><div class="workout-day">Saturday</div><div class="workout-focus">Cardio</div><p>30 min run, cycling or HIIT session</p></div>
+          <div class="workout-card rest"><div class="workout-day">Sunday</div><div class="workout-focus">Rest Day</div><p>Full rest and recovery</p></div>
+        </div>
+      </div>
+
+      <div id="section-progress" style="display:none;">
+        <h2 class="section-heading">My Progress</h2>
+        <div class="progress-cards">
+          <div class="progress-card">
+            <div class="progress-label"><span>Weight Goal</span><span>80%</span></div>
+            <div class="progress-bar"><div class="progress-fill" style="width:80%;"></div></div>
+          </div>
+          <div class="progress-card">
+            <div class="progress-label"><span>Cardio Goal</span><span>55%</span></div>
+            <div class="progress-bar"><div class="progress-fill" style="width:55%;"></div></div>
+          </div>
+          <div class="progress-card">
+            <div class="progress-label"><span>Strength Goal</span><span>70%</span></div>
+            <div class="progress-bar"><div class="progress-fill" style="width:70%;"></div></div>
+          </div>
+          <div class="progress-card">
+            <div class="progress-label"><span>Flexibility Goal</span><span>40%</span></div>
+            <div class="progress-bar"><div class="progress-fill" style="width:40%;"></div></div>
+          </div>
+        </div>
+      </div>
+
+  
+      <div id="section-membership" style="display:none;">
+        <h2 class="section-heading">Membership</h2>
+        <div class="membership-card">
+          <div class="membership-top">
+            <div>
+              <p class="membership-label">Current Plan</p>
+              <h3 class="membership-plan" id="membership-plan">-</h3>
+            </div>
+            <span class="membership-status">Active ✅</span>
+          </div>
+          <div class="membership-details">
+            <div class="info-row"><span>Member since</span><strong id="membership-since">-</strong></div>
+            <div class="info-row"><span>Next billing</span><strong>May 1, 2026</strong></div>
+            <div class="info-row"><span>Classes per month</span><strong>Unlimited</strong></div>
+            <div class="info-row"><span>Personal trainer</span><strong>Included</strong></div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</div>
+
+<script src="dashboard.js"></script>
+</body>
+</html>
