@@ -1,5 +1,3 @@
-/* contact.js — mirrors home.js patterns */
-
 const navbar = document.getElementById("navbar");
 
 window.addEventListener("scroll", function () {
@@ -12,7 +10,7 @@ window.addEventListener("scroll", function () {
 
 window.addEventListener("load", function () {
   if (typeof AOS !== "undefined") {
-    AOS.init({ duration: 700, once: true, offset: 60 });
+    AOS.init({ duration: 0, once: true, offset: 0 });
   }
 });
 
@@ -20,7 +18,7 @@ const backToTop = document.getElementById("back-to-top");
 
 if (backToTop) {
   backToTop.addEventListener("click", function () {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({ top: 0 });
   });
 }
 
@@ -70,8 +68,7 @@ function showToast(message, type, duration) {
   container.appendChild(toast);
 
   setTimeout(function () {
-    toast.classList.add("hide");
-    setTimeout(function () { toast.remove(); }, 300);
+    toast.remove();
   }, duration);
 }
 
@@ -130,7 +127,7 @@ if (form) {
     if (!allValid) {
       showToast("Please fix the highlighted fields before sending.", "error");
       const firstError = form.querySelector("input.error, select.error, textarea.error");
-      if (firstError) firstError.scrollIntoView({ behavior: "smooth", block: "center" });
+      if (firstError) firstError.scrollIntoView();
       return;
     }
 
@@ -166,6 +163,6 @@ if (form) {
       form.reset();
       if (charCount) charCount.textContent = "0 / 500";
       showToast("Message sent! We'll get back to you within 24 hours.", "success", 5000);
-    }, 1500);
+    }, 0);
   });
-}
+}git
