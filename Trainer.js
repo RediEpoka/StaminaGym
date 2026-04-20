@@ -125,7 +125,6 @@ const modal = document.getElementById("modal");
 const modalBody = document.getElementById("modal-body");
 const closeBtn = document.querySelector(".close");
 
-// MODAL OPEN LOGIC
 document.addEventListener("click", function(e) {
   if (e.target && e.target.classList.contains("view-btn")) {
     const isSpotlight = e.target.closest(".spotlight");
@@ -136,7 +135,6 @@ document.addEventListener("click", function(e) {
     if (!data) return;
 
     if (isSpotlight || e.target.innerText === "Read Story") {
-      // SUCCESS STORY VIEW
       modalBody.innerHTML = `
         <h2 style="color:var(--color-accent)">Success Story</h2>
         <p style="font-style:italic; margin: 20px 0;">"${data.clientStory?.narrative || "Transformation coming soon!"}"</p>
@@ -147,7 +145,6 @@ document.addEventListener("click", function(e) {
         <button class="book-btn open-booking" data-trainer="${name}">Book a Session</button>
       `;
     } else {
-      // PROFILE VIEW
       modalBody.innerHTML = `
         <h2 style="color:var(--color-accent)">${name}</h2>
         <div class="social-icons-modal">
@@ -183,13 +180,11 @@ document.addEventListener("click", function(e) {
   }
 });
 
-// CLOSE LOGIC
 if(closeBtn) {
     closeBtn.onclick = () => modal.style.display = "none";
 }
 window.onclick = (event) => { if (event.target == modal) modal.style.display = "none"; };
 
-// SELECT ELEMENTS
 const bookingModal = document.getElementById("booking-modal");
 const bookingForm = document.getElementById("booking-form");
 const bookingSuccess = document.getElementById("booking-success");
@@ -198,9 +193,8 @@ const displayUserName = document.getElementById("display-user-name");
 const selectedTrainerText = document.getElementById("selected-trainer-name");
 const closeBookingBtn = document.querySelector(".close-booking");
 
-// 1. OPEN BOOKING MODAL
 document.addEventListener("click", function(e) {
-  // Now this ONLY triggers on the actual "Book a Session" button
+
   if (e.target && e.target.classList.contains("book-btn")) {
     
     let trainerName = "";
@@ -212,13 +206,11 @@ document.addEventListener("click", function(e) {
 
     selectedTrainerText.innerText = "Trainer: " + trainerName;
     
-    // Close the profile modal and open the booking modal
     modal.style.display = "none";
     bookingModal.style.display = "block";
   }
 });
 
-// 2. SUBMIT FORM
 if (bookingForm) {
   bookingForm.addEventListener("submit", function(e) {
     e.preventDefault(); 
@@ -228,7 +220,6 @@ if (bookingForm) {
       displayUserName.innerText = userName;
     }
 
-    // Hide the form and show the success block
     bookingForm.style.display = "none";
     bookingSuccess.style.display = "block";
 
@@ -241,7 +232,6 @@ if (bookingForm) {
   });
 }
 
-// 3. CLOSE BOOKING MODAL
 if(closeBookingBtn) {
     closeBookingBtn.onclick = () => {
         bookingModal.style.display = "none";
@@ -253,67 +243,3 @@ window.addEventListener("click", (event) => {
     bookingModal.style.display = "none";
   }
 });
-
-/*
-// SELECT ELEMENTS
-const bookingModal = document.getElementById("booking-modal");
-const bookingForm = document.getElementById("booking-form");
-const bookingSuccess = document.getElementById("booking-success");
-const userNameInput = document.getElementById("user-name");
-const displayUserName = document.getElementById("display-user-name");
-const selectedTrainerText = document.getElementById("selected-trainer-name");
-const closeBookingBtn = document.querySelector(".close-booking");
-
-// 1. OPEN BOOKING MODAL
-document.addEventListener("click", function(e) {
-  // Now this ONLY triggers on the actual "Book a Session" button
-  if (e.target && e.target.classList.contains("book-btn")) {
-    
-    let trainerName = "";
-    const modalTitle = document.querySelector("#modal-body h2");
-    
-    if(modalTitle) {
-        trainerName = modalTitle.innerText;
-    }
-
-    selectedTrainerText.innerText = "Trainer: " + trainerName;
-    
-    // Close the profile modal and open the booking modal
-    modal.style.display = "none";
-    bookingModal.style.display = "block";
-  }
-});
-
-// 2. SUBMIT FORM
-if (bookingForm) {
-  bookingForm.addEventListener("submit", function(e) {
-    e.preventDefault(); 
-    
-    const userName = userNameInput.value;
-    displayUserName.innerText = userName;
-
-    // Hide the form and show the success block
-    bookingForm.style.display = "none";
-    bookingSuccess.style.display = "block";
-
-    setTimeout(() => {
-      bookingModal.style.display = "none";
-      bookingForm.style.display = "block";
-      bookingSuccess.style.display = "none";
-      bookingForm.reset(); 
-    }, 4000);
-  });
-}
-
-// 3. CLOSE BOOKING MODAL
-if(closeBookingBtn) {
-    closeBookingBtn.onclick = () => {
-        bookingModal.style.display = "none";
-    };
-}
-
-window.addEventListener("click", (event) => {
-  if (event.target == bookingModal) {
-    bookingModal.style.display = "none";
-  }
-});*/
