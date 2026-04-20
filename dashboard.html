@@ -11,6 +11,8 @@
 </head>
 <body>
 
+
+
 <div id="auth-screen">
   <div class="auth-container">
 
@@ -64,8 +66,9 @@
         <select id="signup-plan" required>
           <option value="">Select a plan</option>
           <option value="Basic">Basic</option>
+          <option value="Basic">Standart</option>
           <option value="Premium">Premium</option>
-          <option value="Elite">Elite</option>
+          <option value="Elite">VIP</option>
         </select>
       </div>
       <div class="form-group">
@@ -103,11 +106,11 @@
 
     <aside class="dash-sidebar">
       <nav class="dash-nav">
-        <button class="dash-nav-item active" onclick="showSection('profile', this)">👤 Profile</button>
-        <button class="dash-nav-item" onclick="showSection('bookings', this)">📅 My Bookings</button>
-        <button class="dash-nav-item" onclick="showSection('workout', this)">💪 Workout Plan</button>
-        <button class="dash-nav-item" onclick="showSection('progress', this)">📊 Progress</button>
-        <button class="dash-nav-item" onclick="showSection('membership', this)">🏅 Membership</button>
+        <button class="dash-nav-item active" onclick="showSection('profile', this)"> Profile</button>
+        <button class="dash-nav-item" onclick="showSection('bookings', this)"> My Bookings</button>
+        <button class="dash-nav-item" onclick="showSection('workout', this)"> Workout Plan</button>
+        <button class="dash-nav-item" onclick="showSection('progress', this)">Progress</button>
+        <button class="dash-nav-item" onclick="showSection('membership', this)">Membership</button>
       </nav>
     </aside>
 
@@ -202,7 +205,7 @@
               <p class="membership-label">Current Plan</p>
               <h3 class="membership-plan" id="membership-plan">-</h3>
             </div>
-            <span class="membership-status">Active ✅</span>
+            <span class="membership-status">Active</span>
           </div>
           <div class="membership-details">
             <div class="info-row"><span>Member since</span><strong id="membership-since">-</strong></div>
