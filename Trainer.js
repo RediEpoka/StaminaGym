@@ -1,10 +1,8 @@
-// STAR RATINGS
 document.querySelectorAll(".stars").forEach(starDiv => {
 const rating = starDiv.dataset.rating;
 starDiv.innerHTML = "★".repeat(rating) + "☆".repeat(5 - rating);
 });
 
-// FILTER FUNCTION
 const buttons = document.querySelectorAll("[data-filter]");
 const cards = document.querySelectorAll(".trainer-card");
 
@@ -23,7 +21,6 @@ cards.forEach(card => {
 });
 });
 
-// TRAINER DATA
 const trainerDetails = {
   "John Doe": {
     certs: ["NASM Personal Trainer", "CrossFit Level 1"],
@@ -137,10 +134,10 @@ document.addEventListener("click", function(e) {
     if (isSpotlight || e.target.innerText === "Read Story") {
       modalBody.innerHTML = `
         <h2 style="color:var(--color-accent)">Success Story</h2>
-        <p style="font-style:italic; margin: 20px 0;">"${data.clientStory?.narrative || "Transformation coming soon!"}"</p>
+        <p style="font-style:italic; margin: 20px 0;">"${data.clientStory?.narrative}"</p>
         <div class="rating-breakdown">
-            <strong>Client:</strong> ${data.clientStory?.clientName || "Anonymous"}<br>
-            <strong>Result:</strong> ${data.clientStory?.transformation || "In progress"}
+            <strong>Client:</strong> ${data.clientStory?.clientName}<br>
+            <strong>Result:</strong> ${data.clientStory?.transformation}
         </div>
         <button class="book-btn open-booking" data-trainer="${name}">Book a Session</button>
       `;
@@ -167,10 +164,10 @@ document.addEventListener("click", function(e) {
         </div>
         <h4>Client Transformation</h4>
         <div class="story-box">
-          <p class="story-quote">${data.clientStory?.narrative || "Story coming soon."}</p>
+          <p class="story-quote">${data.clientStory?.narrative}</p>
           <div class="story-meta">
-            <span class="story-chip">${data.clientStory?.clientName || ""}</span>
-            <span class="story-chip">${data.clientStory?.transformation || ""}</span>
+            <span class="story-chip">${data.clientStory?.clientName}</span>
+            <span class="story-chip">${data.clientStory?.transformation}</span>
           </div>
         </div>
         <button class="book-btn open-booking" data-trainer="${name}">Book a Session</button>
