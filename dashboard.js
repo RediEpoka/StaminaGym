@@ -1,6 +1,4 @@
-// ═══════════════════════════════════════
-// INIT
-// ═══════════════════════════════════════
+
 let authScreen, dashboardScreen, loginError, signupError;
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -15,9 +13,6 @@ window.addEventListener('DOMContentLoaded', () => {
   renderBookings();
 });
 
-// ═══════════════════════════════════════
-// TAB SWITCH
-// ═══════════════════════════════════════
 function switchTab(tab) {
   const isLogin = tab === 'login';
   document.getElementById('form-login').style.display  = isLogin ? 'flex' : 'none';
@@ -28,9 +23,7 @@ function switchTab(tab) {
   signupError.style.display = 'none';
 }
 
-// ═══════════════════════════════════════
-// SIGN UP
-// ═══════════════════════════════════════
+
 function handleSignup(e) {
   e.preventDefault();
   const name     = document.getElementById('signup-name').value.trim();
@@ -87,20 +80,18 @@ function handleSignup(e) {
     return;
   }
 
-  // ── DUPLICATE CHECK ──
  const existing = getUser();
 if (existing && existing.email === email) {
   showError(signupError, '❌ This email is already registered. Please sign in.');
   return;
 }
-  // ── SAVE ──
   const today = new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
   localStorage.setItem('sg_user', JSON.stringify({
     name, email, password, plan, goal,
     phone, location, memberSince: today
   }));
 
-  // ── SUCCESS → go to login ──
+
   switchTab('login');
   loginError.style.display = 'block';
   loginError.style.color   = '#4ade80';
@@ -109,10 +100,6 @@ if (existing && existing.email === email) {
 }
 
 
-
-// ═══════════════════════════════════════
-// LOGIN
-// ═══════════════════════════════════════
 function handleLogin(e) {
   e.preventDefault();
   const email    = document.getElementById('login-email').value.trim();
@@ -128,9 +115,6 @@ function handleLogin(e) {
   showDashboard(user);
 }
 
-// ═══════════════════════════════════════
-// SHOW DASHBOARD
-// ═══════════════════════════════════════
 function showDashboard(user) {
   authScreen.style.display      = 'none';
   dashboardScreen.style.display = 'flex';
@@ -161,17 +145,13 @@ function showDashboard(user) {
   document.getElementById('membership-since').textContent = user.memberSince || 'N/A';
 }
 
-// ═══════════════════════════════════════
-// LOGOUT
-// ═══════════════════════════════════════
+
 function handleLogout() {
   authScreen.style.display      = 'flex';
   dashboardScreen.style.display = 'none';
 }
 
-// ═══════════════════════════════════════
-// SECTION SWITCHER
-// ═══════════════════════════════════════
+
 function showSection(name, btn) {
   document.querySelectorAll('.dash-main > div').forEach(s => s.style.display = 'none');
   document.getElementById('section-' + name).style.display = 'block';
@@ -179,9 +159,7 @@ function showSection(name, btn) {
   btn.classList.add('active');
 }
 
-// ═══════════════════════════════════════
-// BOOKINGS
-// ═══════════════════════════════════════
+
 const defaultBookings = [
   { id: 1, name: 'Strength Training', day: 'Monday',    time: '08:00', trainer: 'Mark' },
   { id: 2, name: 'HIIT Burn',         day: 'Wednesday', time: '17:00', trainer: 'Sara' },
@@ -225,9 +203,6 @@ function cancelBooking(id) {
   renderBookings();
 }
 
-// ═══════════════════════════════════════
-// HELPERS
-// ═══════════════════════════════════════
 function getUser() {
   return JSON.parse(localStorage.getItem('sg_user'));
 }
