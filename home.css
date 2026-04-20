@@ -83,6 +83,7 @@
 }
 
 .hero {
+  padding-top: 100px;         
   padding-top: 100px;             /* extra so it clears the navbar */
   padding-bottom: var(--space-16);
   background: radial-gradient(circle at top left,
@@ -534,5 +535,3 @@
   box-shadow: var(--shadow-md);
   border: none;
 }
-
-

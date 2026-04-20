@@ -185,30 +185,18 @@ header p {
   margin-right: 10px;
 }
 
-#applyDiscountBtn {
-  padding: 10px 15px;
-  border: none;
-  background: var(--color-accent);
-  color: white;
-  cursor: pointer;
-  border-radius: 6px;
-}
-
-
-#discountMessage {
-  margin-top: 10px;
-  font-weight: bold;
-}
+#applyDiscountBtn,
 #checkoutBtn {
-  margin-top: 10px;
   padding: 10px 15px;
+  border: none;
   background: var(--color-accent);
   color: white;
-  border: none;
-  border-radius: 6px;
   cursor: pointer;
+  border-radius: 6px;
+  margin-top: 10px;
 }
 
+#discountMessage,
 #checkoutMessage {
   margin-top: 10px;
   font-weight: bold;
@@ -261,14 +249,6 @@ header p {
 
 #modalDetails p {
   margin: 8px 0;
-}
-
-.close-btn {
-  position: absolute;
-  right: 15px;
-  top: 10px;
-  font-size: 1.8rem;
-  cursor: pointer;
 }
 
 @media (max-width: 900px) {

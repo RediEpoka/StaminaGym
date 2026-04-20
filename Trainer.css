@@ -8,7 +8,11 @@
 --color-heading: #ffffff;
 --color-accent: #1387c1;
 --color-surface: #141f26;
+
+--radius-full: 9999px;
 }
+
+
 
 body {
 font-family: var(--font-body);
@@ -70,6 +74,7 @@ border: none;
 background: var(--color-accent);
 color: white;
 cursor: pointer;
+border-radius: 9999px;
 }
 
 .spotlight {
@@ -79,15 +84,301 @@ cursor: pointer;
   border-radius: 15px;
   border-left: 5px solid var(--color-accent);
 }
+
 .spotlight-card {
   display: flex;
   align-items: center;
   gap: 30px;
   margin-top: 20px;
 }
+
 .spotlight-card img {
   width: 150px;
   height: 150px;
   border-radius: 50%;
   object-fit: cover;
 }
+
+.view-btn {
+  display: inline-block;
+  margin-top: var(--space-4);
+  padding: 0.75rem 1.5rem;
+
+  background: linear-gradient(135deg, #1387c1, #0f6fa3);
+  color: white;
+
+  border: none;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  letter-spacing: 0.3px;
+
+  transition: var(--transition);
+  box-shadow: var(--shadow-md);
+}
+
+.view-btn:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: var(--shadow-lg);
+}
+
+/* --- THE MISSING MODAL PIECE --- */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; 
+  z-index: 2000; /* Sit on top of everything */
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  background-color: rgba(0,0,0,0.85); /* Black background with opacity */
+  backdrop-filter: blur(5px); /* Modern blur effect */
+}
+
+.modal-content {
+  background-color: var(--color-surface);
+  margin: 5% auto; 
+  padding: 30px;
+  border: 1px solid var(--color-accent);
+  width: 90%;
+  max-width: 500px;
+  border-radius: 20px;
+  position: relative;
+  color: var(--color-text);
+}
+
+.close {
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: var(--color-accent);
+}
+
+.modal-content h2 { color: var(--color-accent); margin-bottom: 10px; }
+.modal-content h4 { margin-top: 20px; color: var(--color-heading); }
+
+.cert-list { list-style: none; padding: 0; margin: 10px 0; }
+.cert-list li::before { content: "✓ "; color: var(--color-accent); font-weight: bold; }
+
+.rating-breakdown {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 15px;
+  border-radius: 10px;
+  margin: 20px 0;
+}
+
+.rating-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+}
+
+.rating-stars { color: gold; }
+
+.book-btn {
+  background: var(--color-accent);
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 600;
+  width: 100%;
+  margin-top: 15px;
+  transition: 0.3s;
+}
+
+.book-btn:hover { background: #1a99d9; transform: scale(1.02); }
+
+/* SOCIAL ICONS */
+.social-icons-modal {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.social-icons-modal a {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid rgba(19,135,193,0.4);
+  background: rgba(19,135,193,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.social-icons-modal a svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+.social-icons-modal a.ig { color: #e1306c; }
+.social-icons-modal a.ig:hover { background: rgba(225,48,108,0.15); border-color: #e1306c; }
+
+.social-icons-modal a.tw { color: #e7f2f7; }
+.social-icons-modal a.tw:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.4); }
+
+/* TRANSFORMATION STORY BOX */
+.story-box {
+  background: rgba(19,135,193,0.07);
+  border: 1px solid rgba(19,135,193,0.2);
+  border-radius: 10px;
+  padding: 14px;
+  margin: 10px 0;
+}
+
+.story-quote {
+  font-style: italic;
+  font-size: 0.85rem;
+  color: rgba(231,242,247,0.85);
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.story-meta {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.story-chip {
+  background: rgba(19,135,193,0.15);
+  border: 1px solid rgba(19,135,193,0.25);
+  border-radius: 20px;
+  padding: 3px 10px;
+  font-size: 0.72rem;
+  color: #7ac8e8;
+  font-family: var(--font-nav);
+}
+
+.modal-content {
+  max-height: 85vh;
+  overflow-y: auto;
+}
+
+.modal-content::-webkit-scrollbar {
+  width: 5px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+  background: #1387c1;
+  border-radius: 9999px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--color-accent);
+  font-size: 0.9rem;
+}
+
+.booking-form input[type="text"],
+.booking-form input[type="date"],
+.booking-form input[type="time"] {
+  width: 100%;
+  padding: 12px;
+  background: var(--color-bg);
+  border: 1px solid #333;
+  color: white;
+  border-radius: 8px;
+  font-family: inherit;
+  margin-top: 5px;
+}
+
+.booking-form input:focus {
+  outline: none;
+  border-color: var(--color-accent);
+}
+
+.close-booking:hover {
+  color: var(--color-accent);
+}
+
+.confirm-btn { 
+  background: var(--color-accent); 
+  color: white; 
+  border: none; 
+  padding: 12px 20px; 
+  border-radius: 50px; 
+  cursor: pointer; 
+  font-weight: 600; 
+  width: 100%; 
+  margin-top: 10px; 
+  transition: 0.3s; 
+}
+
+.confirm-btn:hover { 
+  background: #1a99d9; 
+  transform: scale(1.02); 
+}
+
+#navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+}
+
+
+#navbar.scrolled {
+  background-color: var(--color-surface);
+  box-shadow: var(--shadow-md);
+}
+
+.nav-container {
+  max-width: var(--content-wide);
+  margin: 0 auto;
+  padding: var(--space-3) var(--space-9);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-nav);
+  font-size: var(--text-lg);
+  color: var(--color-heading);
+}
+
+.logo-icon {
+  width: 36px;
+  height: 36px;
+  background-color: var(--color-accent);
+  color: var(--color-contrast);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+
+.logo-text strong {
+  color: var(--color-accent);
+}
+
