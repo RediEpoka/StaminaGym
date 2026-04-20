@@ -90,6 +90,9 @@ const discountCode = document.getElementById("discountCode");
 const applyDiscountBtn = document.getElementById("applyDiscountBtn");
 const discountMessage = document.getElementById("discountMessage");
 
+const checkoutBtn = document.getElementById("checkoutBtn");
+const checkoutMessage = document.getElementById("checkoutMessage");
+
 let currentCategory = "all";
 let cart = JSON.parse(localStorage.getItem("jefit_cart")) || [];
 let wishlist = JSON.parse(localStorage.getItem("jefit_wishlist")) || [];
@@ -357,6 +360,16 @@ applyDiscountBtn.addEventListener("click", function() {
   renderCart();
 });
 
+checkoutBtn.addEventListener("click", function() {
+  if (cart.length === 0) {
+    checkoutMessage.textContent = "Your cart is empty.";
+    checkoutMessage.style.color = "red";
+    return;
+  }
+
+  window.location.href = "checkout.html";
+});
+
 closeModalBtn.addEventListener("click", function() {
   productModal.style.display = "none";
 });
@@ -367,25 +380,6 @@ window.addEventListener("click", function(event) {
   }
 });
 
-
 renderProducts(products);
 renderCart();
 renderWishlist();
-
-const checkoutBtn = document.getElementById("checkoutBtn");
-const checkoutMessage = document.getElementById("checkoutMessage");
-
-checkoutBtn.addEventListener("click", function() {
-  if (cart.length === 0) {
-    checkoutMessage.textContent = "Your cart is empty.";
-    checkoutMessage.style.color = "red";
-    return;
-  }
-
-  checkoutMessage.textContent = "Order placed successfully!";
-  checkoutMessage.style.color = "lightgreen";
-
-  cart = [];
-  localStorage.setItem("jefit_cart", JSON.stringify(cart));
-  renderCart();
-});
